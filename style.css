@@ -842,4 +842,46 @@ footer {
     .chart-card {
         padding: 15px;
     }
+    
+}
+/* SDG Impact Styles */
+.sdg-impact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.sdg-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: var(--light);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+    transition: var(--transition);
+}
+
+.sdg-item:hover {
+    background: rgba(52, 152, 219, 0.05);
+    transform: translateX(5px);
+}
+
+.sdg-icon {
+    margin-right: 15px;
+    color: var(--primary);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Responsive adjustments for SDG section */
+@media (max-width: 768px) {
+    .sdg-item {
+        padding: 12px;
+    }
+    
+    .sdg-item span {
+        font-size: 0.9rem;
+    }
 }
