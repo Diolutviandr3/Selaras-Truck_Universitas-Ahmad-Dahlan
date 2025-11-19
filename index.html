@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LARAS TRUCK - Dashboard Sistem</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>LARAS TRUCK</h1>
+                <p>Inovasi Smart Hybrid dengan Sistem Penghancur dan Pemilah Sampah Terintegrasi</p>
+            </div>
+            <div class="status-overview">
+                <div class="status-item">
+                    <span class="status-label">Status Sistem:</span>
+                    <span class="status-value online">ONLINE</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="dashboard-section">
+            <h2>Data Sensor Real-Time</h2>
+            <div class="sensor-grid">
+                <div class="sensor-card">
+                    <h3>Jenis Sampah Terdeteksi</h3>
+                    <div class="progress-bars">
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Plastik</span>
+                                <span>55%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 55%; background-color: #FF6384;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Organik</span>
+                                <span>30%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 30%; background-color: #36A2EB;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Kertas</span>
+                                <span>10%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 10%; background-color: #FFCE56;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Logam</span>
+                                <span>5%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 5%; background-color: #4BC0C0;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sensor-card">
+                    <h3>Suhu Ruang Penghancur</h3>
+                    <div class="temperature-display">
+                        <div class="temp-value">42°C</div>
+                        <div class="temp-status normal">Normal (< 55°C)</div>
+                    </div>
+                </div>
+
+                <div class="sensor-card">
+                    <h3>Kapasitas Wadah Sampah</h3>
+                    <div class="capacity-grid">
+                        <div class="capacity-item">
+                            <div class="capacity-label">Plastik</div>
+                            <div class="capacity-bar">
+                                <div class="capacity-fill" style="width: 68%;"></div>
+                            </div>
+                            <div class="capacity-value">68%</div>
+                        </div>
+                        <div class="capacity-item">
+                            <div class="capacity-label">Organik</div>
+                            <div class="capacity-bar">
+                                <div class="capacity-fill" style="width: 44%;"></div>
+                            </div>
+                            <div class="capacity-value">44%</div>
+                        </div>
+                        <div class="capacity-item">
+                            <div class="capacity-label">Kertas</div>
+                            <div class="capacity-bar">
+                                <div class="capacity-fill" style="width: 23%;"></div>
+                            </div>
+                            <div class="capacity-value">23%</div>
+                        </div>
+                        <div class="capacity-item">
+                            <div class="capacity-label">Logam</div>
+                            <div class="capacity-bar">
+                                <div class="capacity-fill" style="width: 12%;"></div>
+                            </div>
+                            <div class="capacity-value">12%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sensor-card">
+                    <h3>Status Motor</h3>
+                    <div class="motor-status">
+                        <div class="motor-item">
+                            <span class="motor-name">Motor Conveyor</span>
+                            <span class="motor-state active">Aktif (ON)</span>
+                        </div>
+                        <div class="motor-item">
+                            <span class="motor-name">Motor Penghancur</span>
+                            <span class="motor-state active">Aktif (ON)</span>
+                        </div>
+                        <div class="motor-item">
+                            <span class="motor-name">Servo Pemilah</span>
+                            <span class="motor-state normal">Normal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <h2>Data Grafik</h2>
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Grafik Suhu per Menit</h3>
+                    <canvas id="temperatureChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Grafik Kapasitas Wadah</h3>
+                    <canvas id="capacityChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <h2>Status Sistem</h2>
+            <div class="status-grid">
+                <div class="status-card">
+                    <div class="status-icon">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzRjYWY1MCI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bS0yIDE1bC01LTUgMS40MS0xLjQxTDEwIDE0LjE3bDcuNTktNy41OUwxOSA4bC05IDl6Ii8+PC9zdmc+" alt="Status">
+                    </div>
+                    <div class="status-info">
+                        <h4>Koneksi Raspberry Pi</h4>
+                        <p class="status-value online">ONLINE</p>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="status-icon">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzRjYWY1MCI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bS0yIDE1bC01LTUgMS40MS0xLjQxTDEwIDE0LjE3bDcuNTktNy41OUwxOSA4bC05IDl6Ii8+PC9zdmc+" alt="Status">
+                    </div>
+                    <div class="status-info">
+                        <h4>Koneksi MQTT</h4>
+                        <p class="status-value stable">STABLE (98%)</p>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="status-icon">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzRjYWY1MCI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bS0yIDE1bC01LTUgMS40MS0xLjQxTDEwIDE4LjE3bDcuNTktNy41OUwxOSAxMmwtOSA5eiIvPjwvc3ZnPg==" alt="Status">
+                    </div>
+                    <div class="status-info">
+                        <h4>Ping ke Server</h4>
+                        <p class="status-value good">20 ms (baik)</p>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="status-icon">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzRjYWY1MCI+PHBhdGggZD0iTTE1LjY3IDRIMTRWMloiLz48cGF0aCBkPSJNNi4zMyAyMGg5LjM0YTcuMTggNy4xOCAwIDAgMCA0LTRINi4zM2MtLjQxIDAtLjY3LS40MS0uNTItLjc3TDUgMTdoMTRsLS44MS0yLjIzYy4xNC0uMzYtLjExLS43Ny0uNTItLjc3aC0zLjM0bC4yMi0uNjFjLjE0LS4zNi0uMTEtLjc3LS41Mi0uNzdINy4wNWMtLjQxIDAtLjY3LjQxLS41Mi43N0w3LjUgMTNoLTIuMTdjLS40MSAwLS42Ny40MS0uNTIuNzdMNCAxN2wtLjgxIDIuMjNjLS4xNS4zNi4xMS43Ny41Mi43N3pNMjIgOUgyVjRoMjB2NXoiLz48L3N2Zz4=" alt="Baterai">
+                    </div>
+                    <div class="status-info">
+                        <h4>Daya Baterai</h4>
+                        <p class="status-value good">87%</p>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="status-icon">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzRjYWY1MCI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bS0yIDE1bC01LTUgMS40MS0xLjQxTDEwIDE0LjE3bDcuNTktNy41OUwxOSA4bC05IDl6Ii8+PC9zdmc+" alt="Motor">
+                    </div>
+                    <div class="status-info">
+                        <h4>Kecepatan Motor Conveyor</h4>
+                        <p class="status-value good">134 RPM</p>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="status-icon">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzRjYWY1MCI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bS0yIDE1bC01LTUgMS40MS0xLjQxTDEwIDE0LjE3bDcuNTktNy41OUwxOSA4bC05IDl6Ii8+PC9zdmc+" alt="Motor">
+                    </div>
+                    <div class="status-info">
+                        <h4>Kecepatan Shredder</h4>
+                        <p class="status-value good">2.100 RPM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <h2>Notifikasi Sistem</h2>
+            <div class="notifications">
+                <div class="notification-item">
+                    <div class="notification-time">[10:04]</div>
+                    <div class="notification-content">
+                        <p>Suhu meningkat dari 41°C ke 42°C → normal.</p>
+                    </div>
+                </div>
+                <div class="notification-item warning">
+                    <div class="notification-time">[10:07]</div>
+                    <div class="notification-content">
+                        <p>Wadah plastik melewati 65%.</p>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <div class="notification-time">[10:12]</div>
+                    <div class="notification-content">
+                        <p>Motor conveyor mengalami lonjakan beban kecil (diselesaikan).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>LARAS TRUCK - Inovasi Smart Hybrid dengan Sistem Penghancur dan Pemilah Sampah Terintegrasi</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data untuk grafik suhu
+        const temperatureData = {
+            labels: ['10:00', '10:01', '10:02', '10:03', '10:04', '10:05'],
+            datasets: [{
+                label: 'Suhu (°C)',
+                data: [39, 40, 41, 42, 42, 43],
+                borderColor: '#FF6384',
+                backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        };
+
+        // Data untuk grafik kapasitas
+        const capacityData = {
+            labels: ['Plastik', 'Organik', 'Kertas', 'Logam'],
+            datasets: [{
+                label: 'Persentase Kapasitas',
+                data: [68, 44, 23, 12],
+                backgroundColor: [
+                    '#FF6384',
+                    '#36A2EB',
+                    '#FFCE56',
+                    '#4BC0C0'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        // Inisialisasi grafik suhu
+        const tempCtx = document.getElementById('temperatureChart').getContext('2d');
+        const temperatureChart = new Chart(tempCtx, {
+            type: 'line',
+            data: temperatureData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 35,
+                        max: 50
+                    }
+                }
+            }
+        });
+
+        // Inisialisasi grafik kapasitas
+        const capacityCtx = document.getElementById('capacityChart').getContext('2d');
+        const capacityChart = new Chart(capacityCtx, {
+            type: 'bar',
+            data: capacityData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
