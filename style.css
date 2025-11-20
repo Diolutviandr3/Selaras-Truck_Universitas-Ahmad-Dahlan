@@ -1,3 +1,4 @@
+/* CSS yang sudah dimodifikasi */
 * {
     margin: 0;
     padding: 0;
@@ -199,7 +200,7 @@ header {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('Gambar Truk.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -520,6 +521,7 @@ header {
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
 }
 
 .control-section h3 {
@@ -546,6 +548,11 @@ header {
 
 .control-value {
     color: var(--text-light);
+}
+
+.control-value.connected {
+    color: var(--accent);
+    font-weight: bold;
 }
 
 .toggle-switch {
@@ -676,47 +683,67 @@ input:checked + .toggle-slider:before {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.about-content h3 {
+.about-section {
+    margin-bottom: 30px;
+}
+
+.about-section:last-child {
+    margin-bottom: 0;
+}
+
+.about-section h3 {
     margin-bottom: 15px;
     color: var(--primary);
 }
 
-.about-content p {
+.about-section p {
     margin-bottom: 15px;
+    text-align: justify;
+}
+
+.about-section ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.about-section li {
+    margin-bottom: 8px;
 }
 
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    gap: 30px;
     margin-top: 25px;
 }
 
 .team-member {
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     background: var(--card-bg);
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .member-photo {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    background: var(--primary);
-    margin: 0 auto 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5rem;
+    object-fit: cover;
+    margin: 0 auto 15px;
+    border: 4px solid var(--primary);
 }
 
 .member-name {
     font-weight: bold;
     margin-bottom: 5px;
+    font-size: 1.1rem;
 }
 
 .member-role {
@@ -820,6 +847,10 @@ footer {
         max-width: 250px;
         justify-content: center;
     }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
@@ -884,4 +915,216 @@ footer {
     .sdg-item span {
         font-size: 0.9rem;
     }
+}
+
+/* Login Form Styles */
+.login-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.login-card {
+    background: var(--light);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-card h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--primary);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: var(--card-bg);
+    color: var(--text);
+}
+
+.form-group input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.checkbox-container input {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    background: var(--card-bg);
+}
+
+.checkbox-container input:checked + .checkmark {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.checkbox-container input:checked + .checkmark:after {
+    content: "✓";
+    color: white;
+    font-size: 12px;
+}
+
+.forgot-password {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.login-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    font-size: 1rem;
+}
+
+/* Connection Status Styles */
+.connection-status {
+    margin-top: 15px;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 4px;
+    background: rgba(46, 204, 113, 0.1);
+    border-left: 4px solid var(--accent);
+}
+
+.status-indicator.offline {
+    background: rgba(231, 76, 60, 0.1);
+    border-left-color: var(--warning);
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    margin-right: 10px;
+    animation: pulse 2s infinite;
+}
+
+.status-indicator.offline .status-dot {
+    background-color: var(--warning);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(46, 204, 113, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+    }
+}
+
+/* Maintenance Styles */
+.maintenance-info {
+    margin-top: 15px;
+}
+
+.maintenance-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.maintenance-item:last-child {
+    border-bottom: none;
+}
+
+.maintenance-label {
+    font-weight: 500;
+}
+
+.maintenance-value {
+    color: var(--primary);
+}
+
+.maintenance-schedule {
+    margin-top: 20px;
+}
+
+.maintenance-schedule h4 {
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.maintenance-schedule ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.maintenance-schedule li {
+    padding: 8px 0;
+    border-bottom: 1px solid #e9ecef;
+    position: relative;
+    padding-left: 20px;
+}
+
+.maintenance-schedule li:before {
+    content: "•";
+    color: var(--accent);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.maintenance-schedule li:last-child {
+    border-bottom: none;
 }

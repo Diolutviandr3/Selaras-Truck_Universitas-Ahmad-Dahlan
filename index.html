@@ -144,16 +144,8 @@
                             <h3>Status Motor</h3>
                             <div class="motor-status">
                                 <div class="motor-item">
-                                    <span class="motor-name">Motor Conveyor</span>
-                                    <span class="motor-state active">Aktif (ON)</span>
-                                </div>
-                                <div class="motor-item">
-                                    <span class="motor-name">Motor Penghancur</span>
-                                    <span class="motor-state active">Aktif (ON)</span>
-                                </div>
-                                <div class="motor-item">
-                                    <span class="motor-name">Servo Pemilah</span>
-                                    <span class="motor-state normal">Normal</span>
+                                    <span class="motor-name">Motor Hybrid</span>
+                                    <span class="motor-state active">Aktif + Normal</span>
                                 </div>
                             </div>
                         </div>
@@ -166,12 +158,6 @@
                 <div class="dashboard-section">
                     <h2>Monitoring Real-Time</h2>
                     <div class="sensor-grid">
-                        <div class="sensor-card">
-                            <h3>Kamera Real-Time</h3>
-                            <div style="background: #e9ecef; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-                                <p>Streaming Kamera Sistem Pemilahan</p>
-                            </div>
-                        </div>
                         <div class="sensor-card">
                             <h3>Data Sensor Terkini</h3>
                             <div class="motor-status">
@@ -218,32 +204,37 @@
                     <div class="control-panel">
                         <div>
                             <div class="control-section">
-                                <h3>System Controls</h3>
+                                <h3>Status Konektivitas</h3>
                                 <div class="control-item">
-                                    <div class="control-label">Water Pump</div>
-                                    <div class="control-value">Circulation system</div>
+                                    <div class="control-label">Status Raspberry Pi</div>
+                                    <div class="control-value connected">Connected</div>
+                                </div>
+                                <div class="connection-status">
+                                    <div class="status-indicator connected">
+                                        <div class="status-dot"></div>
+                                        <span>Terhubung ke Server</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-section">
+                                <h3>Protokol Komunikasi</h3>
+                                <div class="control-item">
+                                    <div class="control-label">WiFi</div>
                                     <label class="toggle-switch">
                                         <input type="checkbox" checked>
                                         <span class="toggle-slider"></span>
                                     </label>
                                 </div>
-                            </div>
-
-                            <div class="control-section">
-                                <h3>LED Lighting</h3>
                                 <div class="control-item">
-                                    <div class="control-label">Artificial photosynthesis</div>
+                                    <div class="control-label">MQTT</div>
                                     <label class="toggle-switch">
                                         <input type="checkbox" checked>
                                         <span class="toggle-slider"></span>
                                     </label>
                                 </div>
-                            </div>
-
-                            <div class="control-section">
-                                <h3>Auto Nutrition</h3>
                                 <div class="control-item">
-                                    <div class="control-label">Nutrient dosing</div>
+                                    <div class="control-label">HTTP</div>
                                     <label class="toggle-switch">
                                         <input type="checkbox">
                                         <span class="toggle-slider"></span>
@@ -252,24 +243,23 @@
                             </div>
 
                             <div class="control-section">
-                                <h3>Settings</h3>
-                                <div class="settings-grid">
-                                    <div class="setting-item">
-                                        <label class="setting-label">Light Timer (hours)</label>
-                                        <div class="setting-options">
-                                            <button class="option-btn">80</button>
-                                            <button class="option-btn active">200</button>
-                                            <button class="option-btn">300</button>
-                                        </div>
+                                <h3>Maintenance</h3>
+                                <div class="maintenance-info">
+                                    <div class="maintenance-item">
+                                        <span class="maintenance-label">Last Maintenance:</span>
+                                        <span class="maintenance-value">2025-01-15</span>
                                     </div>
-                                    <div class="setting-item">
-                                        <label class="setting-label">Nutrient Dose (ml/h)</label>
-                                        <div class="setting-options">
-                                            <button class="option-btn">0</button>
-                                            <button class="option-btn">5ml</button>
-                                            <button class="option-btn active">15ml</button>
-                                            <button class="option-btn">25ml</button>
-                                        </div>
+                                    <div class="maintenance-item">
+                                        <span class="maintenance-label">Next Maintenance:</span>
+                                        <span class="maintenance-value">2025-02-15</span>
+                                    </div>
+                                    <div class="maintenance-schedule">
+                                        <h4>Jadwal Pemeliharaan</h4>
+                                        <ul>
+                                            <li>Penggantian pisau rotor: Setiap 3 bulan</li>
+                                            <li>Pengecekan sekering termal: Setiap bulan</li>
+                                            <li>Kalibrasi sensor: Setiap 6 bulan</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -381,39 +371,77 @@
                 <div class="dashboard-section">
                     <h2>Tentang LARAS TRUCK</h2>
                     <div class="about-content">
-                        <h3>Inovasi Smart Hybrid dengan Sistem Penghancur dan Pemilah Sampah Terintegrasi</h3>
-                        <p>LARAS TRUCK adalah solusi inovatif untuk mengatasi masalah sampah perkotaan dengan mengintegrasikan teknologi penghancur dan pemilah sampah dalam satu sistem yang efisien.</p>
-                        <p>Sistem ini dirancang untuk memproses berbagai jenis sampah (plastik, organik, kertas, dan logam) secara otomatis, mengurangi volume sampah hingga 70%, dan memfasilitasi daur ulang yang lebih efektif.</p>
+                        <div class="about-section">
+                            <h3>Inovasi Smart Hybrid dengan Sistem Penghancur dan Pemilah Sampah Terintegrasi</h3>
+                            <p>LARAS TRUCK adalah solusi inovatif untuk mengatasi masalah sampah perkotaan dengan mengintegrasikan teknologi penghancur dan pemilah sampah dalam satu sistem yang efisien. Sistem ini dirancang untuk memproses berbagai jenis sampah (plastik, organik, kertas, dan logam) secara otomatis, mengurangi volume sampah hingga 70%, dan memfasilitasi daur ulang yang lebih efektif.</p>
+                        </div>
                         
-                        <h3>Fitur Utama</h3>
-                        <ul>
-                            <li>Sistem pemilahan otomatis berbasis AI dan sensor canggih</li>
-                            <li>Penghancur sampah berkapasitas tinggi dengan konsumsi energi rendah</li>
-                            <li>Monitoring real-time melalui dashboard terintegrasi</li>
-                            <li>Sistem hybrid yang dapat beroperasi dengan listrik atau tenaga surya</li>
-                            <li>Pengumpulan data analitik untuk optimasi proses</li>
-                        </ul>
+                        <div class="about-section">
+                            <h3>Fitur Utama</h3>
+                            <ul>
+                                <li>Sistem pemilahan otomatis berbasis AI dan sensor canggih</li>
+                                <li>Penghancur sampah berkapasitas tinggi dengan konsumsi energi rendah</li>
+                                <li>Monitoring real-time melalui dashboard terintegrasi</li>
+                                <li>Sistem hybrid yang dapat beroperasi dengan listrik atau tenaga surya</li>
+                                <li>Pengumpulan data analitik untuk optimasi proses</li>
+                            </ul>
+                        </div>
                         
-                        <h3>Pemantauan Berbasis Web</h3>
-                        <p>Seluruh proses pada LARAS TRUCK dapat dipantau melalui sistem pemantauan berbasis web yang terhubung langsung dengan Raspberry Pi Model B+. Data dari sensor dikirimkan ke server menggunakan protokol komunikasi seperti MQTT atau HTTP sehingga informasi mengenai jenis sampah, suhu ruang penghancur, kapasitas wadah, serta status motor dapat diperbarui secara real-time. Antarmuka web menampilkan data tersebut dalam bentuk grafik dan indikator status sehingga operator dapat memantau kinerja kendaraan dari jarak jauh. Sistem ini juga mampu memberikan notifikasi ketika terjadi kondisi tertentu seperti beban berlebih, kenaikan suhu yang tidak wajar, atau hambatan pada jalur pemilahan. Dengan demikian, pemantauan berbasis web meningkatkan keandalan operasional LARAS TRUCK serta memastikan proses pengolahan berjalan lebih efisien dan terkendali.</p>
+                        <div class="about-section">
+                            <h3>Pemantauan Berbasis Web</h3>
+                            <p>Seluruh proses pada LARAS TRUCK dapat dipantau melalui sistem pemantauan berbasis web yang terhubung langsung dengan Raspberry Pi Model B+. Data dari sensor dikirimkan ke server menggunakan protokol komunikasi seperti MQTT atau HTTP sehingga informasi mengenai jenis sampah, suhu ruang penghancur, kapasitas wadah, serta status motor dapat diperbarui secara real-time. Antarmuka web menampilkan data tersebut dalam bentuk grafik dan indikator status sehingga operator dapat memantau kinerja kendaraan dari jarak jauh. Sistem ini juga mampu memberikan notifikasi ketika terjadi kondisi tertentu seperti beban berlebih, kenaikan suhu yang tidak wajar, atau hambatan pada jalur pemilahan. Dengan demikian, pemantauan berbasis web meningkatkan keandalan operasional LARAS TRUCK serta memastikan proses pengolahan berjalan lebih efisien dan terkendali.</p>
+                        </div>
                         
-                        <h3>Tim Pengembang</h3>
-                        <div class="team-grid">
-                            <div class="team-member">
-                                <div class="member-photo">RR</div>
-                                <div class="member-name">Rochman Rachmadhani</div>
-                                <div class="member-role">Project Lead</div>
+                        <div class="about-section">
+                            <h3>Tim Pengembang</h3>
+                            <div class="team-grid">
+                                <div class="team-member">
+                                    <img src="Rochman.jpg" alt="Rochman Rachmadhani" class="member-photo">
+                                    <div class="member-name">Rochman Rachmadhani</div>
+                                    <div class="member-role">Project Lead</div>
+                                </div>
+                                <div class="team-member">
+                                    <img src="Dio.jpg" alt="Dio Lutvi Andre" class="member-photo">
+                                    <div class="member-name">Dio Lutvi Andre</div>
+                                    <div class="member-role">AI Engineer</div>
+                                </div>
+                                <div class="team-member">
+                                    <img src="Ezlin.jpg" alt="Ezlin Fresti Irani" class="member-photo">
+                                    <div class="member-name">Ezlin Fresti Irani</div>
+                                    <div class="member-role">Data Scientist</div>
+                                </div>
                             </div>
-                            <div class="team-member">
-                                <div class="member-photo">DL</div>
-                                <div class="member-name">Dio Lutvi Andre</div>
-                                <div class="member-role">AI Engineer</div>
-                            </div>
-                            <div class="team-member">
-                                <div class="member-photo">EF</div>
-                                <div class="member-name">Ezlin Fresti Irani</div>
-                                <div class="member-role">Data Scientist</div>
-                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Login Tab -->
+            <section id="login" class="tab-content">
+                <div class="dashboard-section">
+                    <h2>Log In</h2>
+                    <div class="login-form-container">
+                        <div class="login-card">
+                            <h3>Masuk ke Dashboard</h3>
+                            <form class="login-form">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" id="username" placeholder="Masukkan username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" placeholder="Masukkan password">
+                                </div>
+                                <div class="form-options">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        Ingat saya
+                                    </label>
+                                    <a href="#" class="forgot-password">Lupa password?</a>
+                                </div>
+                                <button type="submit" class="btn btn-primary login-btn">Masuk</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -438,6 +466,9 @@
                     </a></li>
                     <li><a href="#about" class="sidebar-link">
                         <i class="fas fa-info-circle"></i> About
+                    </a></li>
+                    <li><a href="#login" class="sidebar-link">
+                        <i class="fas fa-sign-in-alt"></i> Log In
                     </a></li>
                 </ul>
             </nav>
@@ -679,6 +710,14 @@
                     sidebar.classList.contains('active')) {
                     sidebar.classList.remove('active');
                 }
+            });
+
+            // Login form submission
+            const loginForm = document.querySelector('.login-form');
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Login berhasil!');
+                // Di sini bisa ditambahkan logika autentikasi
             });
         });
     </script>
